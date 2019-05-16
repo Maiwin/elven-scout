@@ -25,8 +25,10 @@ export class Animation extends Sprite {
     this.sourceY = this.frames[index].sy;
   }
   run() {
-    this.setFrame(0);
-    this.running = true;
+    if(!this.running) {
+      this.setFrame(0);
+      this.running = true;
+    }
   }
 
   stop() {
@@ -50,12 +52,12 @@ export class Animation extends Sprite {
       return;
     }
     if(this.lastTime == 0 ) {
-      this.lastTime == time;
+      this.lastTime = time;
       return;
     }
     if((time - this.lastTime) > this.speed) {
       this.nextFrame();
-      this.lastTime += this.speed;
+      this.lastTime = time;
     }
   }
 }
