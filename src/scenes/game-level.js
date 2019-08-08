@@ -1,7 +1,7 @@
 import { Scene } from '../scene';
 import { SpriteSheet } from '../sprite-sheet';
 import { CharacterSheet } from '../character-sheet';
-import { Player } from '../Player';
+import { Player } from '../player';
 import { Camera } from '../camera';
 
 export class GameLevel extends Scene {
@@ -15,7 +15,7 @@ export class GameLevel extends Scene {
     this.tree = this.tiles.getSprite(7);
     this.tree.setXY(10, 10);
     this.orcTiles = new CharacterSheet({imageName: "orc"});
-    this.orc = this.orcTiles.getAnimation("stab_down");
+    this.orc = this.orcTiles.getAnimation("walk_down");
     this.orc.setXY(100, 10);
 
     this.player = new Player(this.game.control);

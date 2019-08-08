@@ -8,7 +8,8 @@ export class Body {
     this.speed = speed;                     //скорость премежения 
     this.velocity = new Vector("down", 0);  //вектор перемещения
     this.lastTime = 0;                      //время посленего кадра 
-    this.animations = {};                    //контейнер для хранения анимаций 
+    this.animations = {};                    //контейнер для хранения анимаций
+    this.collisionShape = { x: 18, y: 15, width: 28, height: 49 }; 
 
     //анимация ходьбы для всех героев
     const animationSheet = new CharacterSheet({imageName: imageName});
@@ -22,7 +23,7 @@ export class Body {
   walk(direction) {
     this.velocity.setDirection(direction, this.speed); //задали скорость 
     this.view = this.animations["walk_" + direction]; // выбрали анимацию 
-    this.view.run;                                   // запустили её
+    this.view.run();                                   // запустили её
   }
 
   //что бы персонаж стоял на месте обнулили скорость и остновили анимацию
@@ -41,7 +42,7 @@ export class Body {
     //считаем перемещение, скорость делим на 1000, координаты для анимаций 
     this.x += ( time - this.lastTime) * (this.velocity.x / 1000);
     this.y += ( time - this.lastTime) * (this.velocity.y / 1000);
-    this.lastTime = true;
+    this.lastTime = time;
     this.view.setXY(Math.trunc(this.x),Math.trunc(this.y));
     this.view.update(time);
   }

@@ -6,7 +6,7 @@ import { Scene } from './scene';
 import { ControlState } from './control-state'
 
 export class Game {
-  constructor({ width = 650, height = 640 } = {}) {
+  constructor({ width = 640, height = 640 } = {}) {
     this.screen = new Screen(width, height);
     this.screen.loadImages({     //отвечает за загрузку изображений 
       orc: 'img/orc.png',

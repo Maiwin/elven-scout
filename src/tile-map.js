@@ -5,4 +5,4 @@ export class TileMap extends Sprite {
     super(props);
     this.hitboxes = props.hitboxes || [];
   }
-}
+} 

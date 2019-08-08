@@ -25,11 +25,11 @@ export class Camera {
         this.x = Math.max(0, this.obj.x - this.scrollEdge);
       } 
       
-      if (this.obj.x > (this.x + this.height - this.scrollEdge)) {
-        this.x = Math.min(this.limitY, this.obj.Y - this.height + this.scrollEdge);
+      if (this.obj.y > (this.y + this.height - this.scrollEdge)) {
+        this.y = Math.min(this.limitY, this.obj.y - this.height + this.scrollEdge);
       }
-      if (this.obj.x < (this.y + this.scrollEdge)) {
-        this.x = Math.max(0, this.obj.y - this.scrollEdge);
+      if (this.obj.y < (this.y + this.scrollEdge)) {
+        this.y = Math.max(0, this.obj.y - this.scrollEdge);
       }
     }
   }

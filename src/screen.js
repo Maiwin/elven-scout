@@ -23,7 +23,7 @@ export class Screen {
     loader.load().then((names) => {
       this.images = Object.assign(this.images, loader.images);
       this.isImagesLoaded = true;
-      console.log(names);
+      /* console.log(names); */
     });
   }
 
@@ -114,8 +114,8 @@ export class Screen {
 
     let sourceX = sprite.sourceX + Math.abs(Math.min(0, spriteX));
     let sourceY = sprite.sourceY + Math.abs(Math.min(0, spriteY));
-    let width = Math.min(this.width, spriteX + spriteY + sprite.width) - Math.max(0, spriteX);
-    let height = Math.min(this.height, spriteX + spriteY + sprite.height) - Math.max(0, spriteY);
+    let width = Math.min(this.width, spriteX + sprite.width) - Math.max(0, spriteX);
+    let height = Math.min(this.height, spriteY + sprite.height) - Math.max(0, spriteY);
 
     this.context.drawImage(this.images[sprite.imageName],
       sourceX, 
